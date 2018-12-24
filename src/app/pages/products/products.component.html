@@ -1,0 +1,118 @@
+<div>
+    <h3 class="title mb-3">Point Of Sale</h3>
+  </div>
+  <div id="navbar">
+    <div class="navigation-example">
+      <!-- Navbar Primary  -->
+      <nav class="navbar navbar-expand-lg bg-white">
+        <div class="container">
+          <div class="navbar-translate">
+            <a class="navbar-brand" href="">Welcome</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#example-navbar-primary" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-bar bar1"></span>
+              <span class="navbar-toggler-bar bar2"></span>
+              <span class="navbar-toggler-bar bar3"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse" id="example-navbar-primary">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link"  routerLink="addproduct">
+                  <i ></i> Add New Products
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link"  routerLink="addproduct">
+                  <i ></i> View Products
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pablo">
+                  <i ></i> View Bills
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#pablo">
+                  <i class="tim-icons icon-settings-gear-63"></i> LogOut
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar Primary -->
+
+<form>
+
+ 
+    
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group"><i class="title">Name</i>
+        <input type="text" name="name" [(ngModel)]="name" class="form-control" id="exampleFormControlInput1" placeholder="Enter Product Name">
+      </div>
+    </div>
+   
+  </div>
+  <div class="row">
+    <div class="col-md-6"><i class="title"> Price</i>
+      <div class="form-group">
+        <div class="input-group mb-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+          </div>
+          
+          <input class="form-control" name="price" [(ngModel)]="price" placeholder="Enter Price" type="number">
+        </div>
+      </div>
+    </div>
+   
+
+  </div>
+  <button class="btn btn-primary btn-neutral" (click)="updateProduct(item)">Update</button>
+  
+  <button type="button" class="btn btn-success" (click)="addProducts()">Add</button>
+  <div class="row-md-5"></div>
+  <div class="col-md-6"><div class="col-md-6"><div class="input-group" >
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-search"></i></span>
+      </div>
+      <input type="text" class="form-control" placeholder="Search" >
+    </div></div></div>
+   
+  <table class="table">
+    
+    <thead>
+        <tr >
+            <th class="text-center">#</th>
+            <th>Name</th>
+           
+            <th class="text-right">Price</th>
+            <th class="text-right">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            
+           
+          
+      
+        <tr *ngFor="let item of products;let i=index" >
+            <td class="text-center">{{i+1}}</td>
+            <td>{{item.name}}</td>
+            
+            <td class="text-right">{{item.price}}</td>
+            <td class="td-actions text-right">
+                <i>Delete</i>
+                <button type="button" rel="tooltip" class="btn btn-danger btn-simple btn-icon btn-sm" (click)="deleteProduct(item)">
+                    <i class="tim-icons icon-simple-remove"></i>
+                </button>
+               <i>Update</i>
+                <button type="button" rel="tooltip" class="tim-icons icon-settings-gear-63" (click)="onClick(item)">
+                    
+                </button>
+            </td>
+        </tr>
+        
+    </tbody>
+</table>
