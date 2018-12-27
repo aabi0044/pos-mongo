@@ -10,16 +10,6 @@ import 'rxjs/add/operator/toPromise';
 export class ApiService {
 readonly baseUrl= 'http://localhost:3000/product';
 readonly baseUrl2= 'http://localhost:3000/cart';
-bill = {
-  cart: [],
-  billno:Number,
-  totalActual: Number,
-    totalSale: Number,
-    totalSave: Number,
-    quantity:Number,
-    date:Date.now()
-  
-}
 cart: any[] = [];
 data = [];
 index = 0;
@@ -43,7 +33,31 @@ deleteProduct(id){
 }
 
 
-saveToCart(cart) {
+
+/* ---------------ORDER--------------------------------------------------------------------------- */
+postBill(bill){
+    console.log(bill)
+  return this.http.post(this.baseUrl2,bill);
+}
+getBills(){
+return this.http.get(this.baseUrl2);
+}
+updateBill(id,data){
+return this.http.put(this.baseUrl2+`/${id}`,data);
+}
+deleteBill(id){
+return this.http.delete(this.baseUrl2 +`/${id}`);
+}
+getCartdata(id){
+  return this.http.get(this.baseUrl2+`/${id}`);
+}
+
+
+
+
+
+ // -=======================Cart ===========
+ saveToCart(cart) {
   let data = JSON.stringify(cart);
   localStorage.setItem('cart', data);
 }
@@ -64,30 +78,5 @@ addItemToCart(item) {
 removeItemFromCart(index) {
   this.cart.splice(index, 1);
 }
-
-//--------------------------------------------------------------------------------------------------------//
-/** Get Data from Cart  */
-// getCartData(id) {
-//   console.log(id)
-//   return this.afs.doc('cart/' + id).valueChanges();
-// }
-getCartdata(id){
-  return this.http.get(this.baseUrl2+`/${id}`);
-}
-/* ---------------ORDER--------------------------------------------------------------------------- */
-postBill(){
-    console.log(this.cart)
-  return this.http.post(this.baseUrl2, this.bill);
-}
-getBillss(){
-return this.http.get(this.baseUrl2);
-}
-updateBill(id,data){
-return this.http.put(this.baseUrl2+`/${id}`,data);
-}
-deleteBill(id){
-return this.http.delete(this.baseUrl2 +`/${id}`);
-}
-
 }
 

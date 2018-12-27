@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiService} from '../../services/api/api.service';
+import {Router}from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -12,8 +13,8 @@ export class ProductsComponent implements OnInit {
   warrenty:string;
   products;
   id;
-  searchText;
-  constructor(private api:ApiService) { }
+  searchText = '';
+  constructor(private api:ApiService,private router:Router) { }
 
   ngOnInit() {
     this.fetchProducts();
@@ -67,6 +68,10 @@ this.name=item.name;
 this.price=item.price;
 }
 filterCondition(product){
+  
   return product.name.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1;
+}
+useCart(){
+  this.router.navigate(['/makeorder'])
 }
 }
