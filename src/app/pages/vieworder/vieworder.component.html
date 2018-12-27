@@ -1,0 +1,96 @@
+<div class="container">
+<!--Invoice template starts-->
+<div class="row">
+    <div class="col-md-12">
+      
+    </div>
+</div>
+<section class="invoice-template">
+    <div class="card">
+        <div class="card-body p-3">
+            <div id="invoice-template" class="card-block">
+                <!-- Invoice Company Details -->
+                <div id="invoice-company-details" class="row">
+                    <div class="col-6 text-left">
+                       
+                    </div>
+                    <div class="col-6 text-right">
+                      
+                        <ul class="px-0 list-unstyled">
+                          <h4> <li>Total Price</li></h4> 
+                            <li class="lead text-bold-800">12,000.00</li>
+                        </ul>
+                    </div>
+                </div>
+                <!--/ Invoice Company Details -->
+                <!-- Invoice Customer Details -->
+                <div id="invoice-customer-details" class="row pt-2">
+                    <div class="col-sm-12 text-left">
+                        
+                    </div>
+                    <div class="col-6 text-left">
+                      
+                    </div>
+                    <div class="col-6 text-right">
+                        <p><span class="text-muted">Creation date:</span> 06/05/2018</p>
+                        <p><span class="text-muted">Bill No:</span> Due on Receipt</p>
+                       
+                    </div>
+                </div>
+                <!--/ Invoice Customer Details -->
+                <!-- Invoice Items Details -->
+                <div id="invoice-items-details" class="pt-2">
+                    <div class="row">
+                        <div class="table-responsive col-sm-12">
+                            <table class="table">
+                                <thead >
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Item &amp; Description</th>
+                                        <th class="text-right">Price</th>
+                                        <th class="text-right">Quantity</th>
+                                        <th class="text-right">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody *ngFor="let k of bills">
+                                    <tr *ngFor="let j of k.orderArray ;let i=index">
+                                        <th scope="row">{{i+1}}</th>
+                                        <td>
+                                            <p>{{j.name}}</p>
+                                            <p class="text-muted">Simply dummy text of the printing and typesetting industry.</p>
+                                        </td>
+                                        <td class="text-right">{{j.saleprice}}</td>
+                                        <td class="text-right">{{j.quantity}}</td>
+                                        <td class="text-right">{{j.saleTotal}}</td>
+                                    </tr>
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        
+                        <div class="col-md-6 col-sm-12">
+                            <p class="lead">Total Amount</p>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>Sub Total</td>
+                                            <td class="text-right">$ 14,900.00</td>
+                                        </tr>
+                                      
+                                    </tbody>
+                                </table>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+<!--Invoice template ends-->

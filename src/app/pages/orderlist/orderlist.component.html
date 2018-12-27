@@ -1,0 +1,68 @@
+
+<!--Striped rows Light Starts-->
+<section id="striped-light">
+  <div class="row">
+      <div class="col-sm-12">
+          <div class="card">
+              <div class="card-header">
+                  <div class="card-title-wrap bar-info">
+                      <h4 class="card-title">List Of Bills</h4>
+                  </div>
+                 
+                  <div class="row">
+                      <div class="col-3 "></div>
+                      <div class="col-5 right">  
+                            <select id="projectinput6" name="budget" class="form-control " (change)="selectChangeHandler($event)">
+                                    <option value="0" selected="" disabled="">Select Month</option>
+                                    <option value="jan">JAN</option>
+                                    <option value="feb">FEB</option>
+                                    <option value="mar">MAR</option>
+                                    <option value="apr">APR</option>
+                                    <option value="mar">MAY</option>
+                                    <option value="jun">JUN</option>
+                                    <option value="jul">JUL</option>
+                                    <option value="aug">AUG</option>
+                                    <option value="sep">SEP</option>
+                                    <option value="oct">OCT</option>
+                                    <option value="nov">NOV</option>
+                                    <option value="dec">DEC</option>
+
+                                </select>
+                      </div>
+                      <div class="col-4 right">
+                            <button class="btn btn-raised mr-1 shadow-z-2 btn-success"> Yesterday's List</button>
+                            <button class="btn btn-raised mr-1 shadow-z-2 btn-success" (click)="today()"> Today's List</button>
+                      </div>
+                </div>
+
+              </div>
+              <div class="card-body">
+                  <div class="card-block">
+                      <table class="table table-striped">
+                          <thead>
+                              <tr>
+                                  <th>#</th>
+                                  <th>Bill No</th>
+                                  <th>No Of Products</th>
+                                  <th>Total Price</th>
+                                  <th>Creation Date</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let item of bills;let i=index" (click)="onClickBill(item)">
+                                  <th scope="row">{{i+1}}</th>
+                                  <td>{{item._id}}</td>
+                                  <th></th>
+                                  <td>Otto</td>
+                                  <td>{{item.date || Date}}</td>
+                              </tr>
+                            
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<!--Striped rows Light Ends-->

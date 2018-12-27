@@ -1,0 +1,11 @@
+.checkout{
+    width: 450px;
+    height: 45px;
+}
+.list-group-item{
+    text-align: center;
+    width: 450px;
+    height: 45px;
+    font-family: sans-serif;
+    font-size: 25px;
+}
