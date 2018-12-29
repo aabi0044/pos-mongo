@@ -18,7 +18,7 @@
                       
                         <ul class="px-0 list-unstyled">
                           <h4> <li>Total Price</li></h4> 
-                            <li class="lead text-bold-800">12,000.00</li>
+                            <li class="lead text-bold-800">{{net}}</li>
                         </ul>
                     </div>
                 </div>
@@ -28,12 +28,12 @@
                     <div class="col-sm-12 text-left">
                         
                     </div>
-                    <div class="col-6 text-left">
+                    <div class="col-5 text-left">
                       
                     </div>
-                    <div class="col-6 text-right">
-                        <p><span class="text-muted">Creation date:</span> 06/05/2018</p>
-                        <p><span class="text-muted">Bill No:</span> Due on Receipt</p>
+                    <div class="col-7 text-right" *ngIf="response">
+                        <p><span class="text-muted">Creation date:</span> {{response.date| date  :"medium"}}</p>
+                        <p><span class="text-muted">Bill No:</span> {{response._id}}</p>
                        
                     </div>
                 </div>
@@ -52,13 +52,12 @@
                                         <th class="text-right">Amount</th>
                                     </tr>
                                 </thead>
-                                <tbody *ngFor="let k of bills">
-                                    <tr *ngFor="let j of k.orderArray ;let i=index">
+                                <tbody >
+                                    <tr *ngFor="let j of response.orderArray ;let i=index">
                                         <th scope="row">{{i+1}}</th>
                                         <td>
                                             <p>{{j.name}}</p>
-                                            <p class="text-muted">Simply dummy text of the printing and typesetting industry.</p>
-                                        </td>
+                                                </td>
                                         <td class="text-right">{{j.saleprice}}</td>
                                         <td class="text-right">{{j.quantity}}</td>
                                         <td class="text-right">{{j.saleTotal}}</td>
@@ -77,7 +76,7 @@
                                     <tbody>
                                         <tr>
                                             <td>Sub Total</td>
-                                            <td class="text-right">$ 14,900.00</td>
+                                            <td class="text-right">{{net}}</td>
                                         </tr>
                                       
                                     </tbody>

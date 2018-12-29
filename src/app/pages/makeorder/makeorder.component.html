@@ -41,7 +41,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fa fa-search"></i></span>
             </div>
-            <input type="text" class="form-control" placeholder="Search">
+            <input type="text" class="form-control" placeholder="Search" name="searchText" [(ngModel)]="searchText">
           </div>
       <table class="table">
       
@@ -54,13 +54,9 @@
                <th></th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                
-               
-              
-          
-            <tr  *ngFor="let item of products ; let i=index" (click)="onClick(item)">
+        <tbody *ngFor="let item of products ; let i=index" >
+            <tr *ngIf = "filterCondition(item)" (click)="onClick(item)">
+         
                 <td class="text-center">{{i+1}}</td>
                 <td>{{item.name}}</td>
                 

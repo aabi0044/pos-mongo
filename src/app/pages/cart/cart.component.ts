@@ -21,14 +21,15 @@ totalBill=0;
 actualBill=0;
 saveBill=0;
 final=0;
-
+z=0;
+net=0;
 //=========================================
   constructor(private api:ApiService) { }
 
   ngOnInit() {
-    
-    if(this.api.cart!= null){
-      this.totalOfBill();
+  
+    if(this.api.cart.length!=0){
+     this.total();
     }
     
   }
@@ -47,41 +48,61 @@ final=0;
     this.bill.orderArray = this.api.cart;
     console.log(this.bill);
     
-    this.totalOfBill();
+    
     this.api.postBill(this.bill).subscribe(res=>{
       console.log(res);
+      this.clearCart();
+      this.net=0;
+
     })
 
 }
-totalOfBill(){
+// totalOfBill(){
+//   let x = JSON.parse(localStorage.getItem('cart'));
+//   console.log(x);
+//   var len = x.length;
+//   // console.log(len);
+//   for(let i=0;i<len;i++){
+  
+//     // console.log(x[i].saleprice);
+//     let l = parseInt(x[i].saleprice);
+
+//     this.totalBill= (l + this.totalBill);
+//     console.log(this.totalBill);
+
+//   }
+//   for(let j=0;j<len;j++){
+//     // console.log(x[j].saleTotal);
+//     // console.log(x[j].saleprice);
+//     let m = parseInt(x[j].saleTotal);
+
+//     this.actualBill= (m + this.actualBill);
+//     console.log(this.actualBill);
+//   }
+//   this.saveBill=this.actualBill-this.totalBill;
+//   console.log(this.saveBill);
+//   this.bill.totalSale=this.totalBill;
+//   this.bill.totalActual=this.actualBill;
+//   this.bill.totalSave=this.bill.totalSale-this.bill.totalActual;
+// this.final=this.bill.totalActual;
+
+// }
+
+total(){
   let x = JSON.parse(localStorage.getItem('cart'));
   console.log(x);
   var len = x.length;
-  // console.log(len);
-  for(let i=0;i<len;i++){
-  
-    // console.log(x[i].saleprice);
-    let l = parseInt(x[i].saleprice);
+// this.len=this.resp.length;
+// this.net= this.resp.orderArray[0].saleTotal;
 
-    this.totalBill= (l + this.totalBill);
-    console.log(this.totalBill);
 
+for (var i = 0; i < len; i++) {
+  let n=x[i].saleTotal;
+  console.log(n);
+     this.z=n+this.z;
   }
-  for(let j=0;j<len;j++){
-    // console.log(x[j].saleTotal);
-    // console.log(x[j].saleprice);
-    let m = parseInt(x[j].saleTotal);
-
-    this.actualBill= (m + this.actualBill);
-    console.log(this.actualBill);
-  }
-  this.saveBill=this.actualBill-this.totalBill;
-  console.log(this.saveBill);
-  this.bill.totalSale=this.totalBill;
-  this.bill.totalActual=this.actualBill;
-  this.bill.totalSave=this.bill.totalSale-this.bill.totalActual;
-this.final=this.bill.totalActual;
-
+  this.net=this.z;
+  console.log(this.net);
 }
 
 

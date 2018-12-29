@@ -37,6 +37,7 @@ deleteProduct(id){
 /* ---------------ORDER--------------------------------------------------------------------------- */
 postBill(bill){
     console.log(bill)
+    console.log(bill.date);
   return this.http.post(this.baseUrl2,bill);
 }
 getBills(){
@@ -48,7 +49,8 @@ return this.http.put(this.baseUrl2+`/${id}`,data);
 deleteBill(id){
 return this.http.delete(this.baseUrl2 +`/${id}`);
 }
-getCartdata(id){
+getSpecificBill(id){
+console.log(id);
   return this.http.get(this.baseUrl2+`/${id}`);
 }
 
