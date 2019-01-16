@@ -24,7 +24,7 @@
 <div class="container">
     <div class="row"> 
         <div class=" col-md-6 ">
-            <button class="btn btn-raised gradient-blue-grey-blue white checkout" (click)="checkout()">CHECKOUT</button>
+            <button class="btn btn-raised gradient-blue-grey-blue white checkout" (click)="checkout1()">CHECKOUT</button>
                    <!-- <ul class="list-group">
                    
                        <li class="list-group-item list-group-item-info">Cras sit amet nibh libero</li>
@@ -65,12 +65,14 @@
                   <div class="card-block">
                       <table class="table">
                           <thead>
-                              <tr>
+                              <tr class="table-head">
                                   <th>#</th>
                                   <th>Poduct Name</th>
                                   <th>Product Price</th>
                                   <th>Quantity</th>
+                                  <th>Warrenty </th>
                                   <th>Total</th>
+
                                   <th></th>
                               </tr>
                           </thead>
@@ -80,6 +82,7 @@
                                   <td>{{x.name}}</td>
                                   <td>{{x.saleprice}}</td>
                                   <td>{{x.quantity}}</td>
+                                  <td *ngIf="x.warrenty!=''">{{x.warrenty}}</td>
                                   <td>{{x.saleTotal}}</td>
                                   <td>   <a (click)="remove(x._id)"  class="btn btn-raised gradient-flickr white">Remove</a></td>
                               </tr>

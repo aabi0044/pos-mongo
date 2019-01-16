@@ -5,6 +5,7 @@ import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 import{RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -15,6 +16,9 @@ import { CartComponent } from './pages/cart/cart.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { OrderlistComponent } from './pages/orderlist/orderlist.component';
+import { HelpComponent } from './pages/help/help.component';
+import { HelpnameComponent } from './pages/helpname/helpname.component';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,9 @@ import { OrderlistComponent } from './pages/orderlist/orderlist.component';
     CartComponent,
     DashboardComponent,
     NavbarComponent,
-    OrderlistComponent
+    OrderlistComponent,
+    HelpComponent,
+    HelpnameComponent
   ],
   imports: [
     BrowserModule,
@@ -35,14 +41,15 @@ import { OrderlistComponent } from './pages/orderlist/orderlist.component';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      {path:'',redirectTo:'makeorder',pathMatch:'full'},
+      {path:'',redirectTo:'login',pathMatch:'full'},
       {path:'makeorder',component:MakeorderComponent},
       {path:'addproduct',component:ProductsComponent},
       {path:'vieworder',component:VieworderComponent},
       {path:'vieworder/:id',component:VieworderComponent},
       {path:'cart',component:CartComponent},
-      {path:'orderslist',component:OrderlistComponent}
-
+      {path:'orderslist',component:OrderlistComponent},
+      {path:'login',component:LoginComponent},
+      {path:'helpname',component:HelpnameComponent}
 
     ])
   ],

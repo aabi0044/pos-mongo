@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api/api.service';
 import { Router } from '@angular/router';
-
-
+import { NgbDateStruct, NgbDatepickerI18n, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
+const now = new Date();
 @Component({
   selector: 'app-makeorder',
   templateUrl: './makeorder.component.html',
@@ -33,23 +33,24 @@ export class MakeorderComponent implements OnInit {
   bill = {
     orderArray: [],
     //investment total
-    totalActual:0,
+    totalActual: 0,
     //sale total
     totalSale: 0,
     //investment - sale 
     totalSave: 0,
     quantity: 0,
-    date: Date.now()
 
+    date: Date.now()
   }
   searchText = '';
+  resp;
+  date: Date;
+  warrenty: string;
 
-
+  disabledModel: NgbDateStruct = { year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate() };
   constructor(private api: ApiService, private router: Router) { }
-
   ngOnInit() {
     this.fetchProducts();
-
     this.totalOfBill();
   }
   fetchProducts() {
@@ -72,16 +73,19 @@ export class MakeorderComponent implements OnInit {
       saleprice: this.sale,
       saleTotal: this.saleTotal,
       actualTotal: this.actualTotal,
-      saveTotal: this.saveTotal
+      saveTotal: this.saveTotal,
+      warrenty: this.warrenty,
+      id:this.id
     }
     this.api.cart.push(product);
     localStorage.setItem('cart', JSON.stringify(this.api.cart));
     console.log(this.api.getSavedCart());
     this.totalPrice();
-    // console.log(this.total);
-    // console.log(this.tactual);
-  this.totalOfBill(); 
-   // console.log(this.tsave);
+    this.totalOfBill();
+    this.name='';
+    this.quantity=0;
+    this.sale=0;
+    this.price=0;
   }
   onClick(item) {
     console.log(item);
@@ -94,8 +98,6 @@ export class MakeorderComponent implements OnInit {
     localStorage.setItem('cart', JSON.stringify(this.cart));
   }
   totalPrice() {
-
-
     let x = JSON.parse(localStorage.getItem('cart'));
     console.log(x);
     var len = x.length;
@@ -110,24 +112,26 @@ export class MakeorderComponent implements OnInit {
   }
   checkout() {
     console.log(this.api.cart);
-    console.log(this.bill.date );
+    console.log(this.bill.date);
     this.bill.orderArray = this.api.cart;
     console.log(this.bill);
     this.api.postBill(this.bill).subscribe(res => {
-      console.log(res);
+      this.resp = res;
+      this.date = this.resp.date;
+      console.log(new Date(this.date));
+      let y = new Date(this.date);
+      let u = { year: y.getFullYear(), month: y.getMonth() + 1, day: y.getDate() };
+      console.log(u);
+      console.log(this.date);
       this.clearCart();
     })
-
   }
-
   clear() {
     this.name = '',
       this.price = null,
       this.quantity = null,
       this.sale = null
-
   }
-
   viewOrder() {
     this.router.navigate(['/vieworder'])
   }
@@ -135,31 +139,21 @@ export class MakeorderComponent implements OnInit {
     let x = JSON.parse(localStorage.getItem('cart'));
     console.log(x);
     var len = x.length;
-    let totalBill=0
-    let totalSale=0
-    let saveBill=0
-    // console.log(len);
+    let totalBill = 0
+    let totalSale = 0
+    let saveBill = 0
     for (let i = 0; i < len; i++) {
-
-      // console.log(x[i].saleprice);
       let l = parseInt(x[i].saleTotal);
-
       totalBill = (l + totalBill);
-     
     }
-
     for (let j = 0; j < len; j++) {
-      // console.log(x[j].saleTotal);
-      // console.log(x[j].saleprice);
       let m = parseInt(x[j].actualTotal);
-
-    totalSale = (m + totalSale);
-      
+      totalSale = (m + totalSale);
     }
-    saveBill =totalBill- totalSale;
-    this.bill.totalActual=totalSale;
-    this.bill.totalSale=totalBill;
-    this.bill.totalSave=saveBill;
+    saveBill = totalBill - totalSale;
+    this.bill.totalActual = totalSale;
+    this.bill.totalSale = totalBill;
+    this.bill.totalSave = saveBill;
     console.log(this.bill.totalActual);
     console.log(this.bill.totalSale);
     console.log(this.bill.totalSave);
@@ -168,7 +162,27 @@ export class MakeorderComponent implements OnInit {
     this.router.navigate(['/cart'])
   }
   filterCondition(product) {
-
     return product.name.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1;
   }
+  selectChangeHandler(event: any) {
+    let val;
+    val = event.target.value;
+    if (val == '6') { this.warrenty = 'Six Months '; }
+    else if (val == '1') { this.warrenty = 'One Year '; }
+    else if (val == '2') { this.warrenty = 'Two Year '; }
+    else if (val == '3') { this.warrenty = 'Three Year '; }
+  }
+  // convertDate() {
+  //   const str = this.date.toString(),
+  //     parts = str.split('-'),
+  //     year = parseInt(parts[0], 10),
+  //     month = parseInt(parts[1], 10) - 1, // NB: month is zero-based!
+  //     day = parseInt(parts[2], 10),
+  //     date = new Date(year, month, day);
+  //   console.log(date);
+  //   let x = date.getTimezoneOffset();
+  //   console.log(x);
+  //   date.setMinutes(date.getMinutes() + 500);
+  //   console.log(date);
+  // }
 }

@@ -25,6 +25,9 @@ amount:number;
 getProducts(){
   return this.http.get(this.baseUrl);
 }
+getProduct(id){
+  return this.http.get(this.baseUrl+`/${id}`);
+}
 updateProduct(id,data){
   return this.http.put(this.baseUrl+`/${id}`,data);
 }
@@ -38,6 +41,7 @@ deleteProduct(id){
 postBill(bill){
     console.log(bill)
     console.log(bill.date);
+
   return this.http.post(this.baseUrl2,bill);
 }
 getBills(){

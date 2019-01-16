@@ -2,3 +2,32 @@
     width: 100px;
     height: 70px;
 }
+.txt{
+    font-family: sans-serif;
+    font-display: 50px;
+    font: outline;
+    color: green;
+    font-size: 15px;
+}
+.table-head{
+    background: #69F0AE;
+}
+.items{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 23px;
+}
+.padd{
+    padding: 21px;
+    margin-top: 23PX;
+}
+.padd1{
+    /* padding: 25px; */
+    margin-top: 23PX;
+}
+.mainheading{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #01579B;
+}
+.input{
+    padding: 22px;
+}

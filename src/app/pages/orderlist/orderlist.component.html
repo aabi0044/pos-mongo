@@ -10,8 +10,8 @@
                   </div>
                  
                   <div class="row">
-                      <div class="col-4 "><select id="projectinput6" name="budget" class="form-control " (change)="selectChangeHandler($event)">
-                            <option value="0" selected="" disabled="">Select Month</option>
+                      <div class="col-2 "><select id="projectinput6" name="budget" class="form-control " (change)="selectChangeHandler($event)">
+                            <option value="0" selected="" disabled=""> Month</option>
                             <option value="jan">JAN</option>
                             <option value="feb">FEB</option>
                             <option value="mar">MAR</option>
@@ -26,10 +26,10 @@
                             <option value="dec">DEC</option>
 
                         </select></div>
-                      <div class="col-4 right">  
+                      <div class="col-2 right">  
                             
                                 <select id="projectinput6" name="budget" class="form-control " (change)="selectChangeHandler1($event)">
-                                        <option value="0" selected="" disabled="">Select Year</option>
+                                        <option value="0" selected="" disabled=""> Year</option>
                                         <option value="2018">2018</option>
                                         <option value="2019">2019</option>
                                         <option value="2020">2020</option>
@@ -59,29 +59,29 @@
                                     
             
                       </div>
-                      <div class="col-4 right">
-                            <a class="btn btn-raised mr-1 shadow-z-2 btn-success left" (click)="searchBills()">Search</a>
-                            <button class="btn btn-raised mr-1 shadow-z-2 btn-success"> Yesterday's List</button>
-                            <button class="btn btn-raised mr-1 shadow-z-2 btn-success" (click)="today()"> Today's List</button>
-                            <div class="block mt-3 mb-3">
-                                
-                                    <button class="btn btn-sm btn-outline-primary mr-1" (click)="selectToday()">Select Today</button>
-                                  </div>
+                      <div class="col-md-1"> <a class="btn btn-raised mr-1 shadow-z-2 btn-success left" (click)="searchBills()">Search</a></div>
+                      <div class="col-1"> </div>
+                      <div class="col-3"> <input type="date"  [(ngModel)]="dp" class="form-control"></div>
+                          
+                         
+                              <button type="button" (click)="datePicker()"  class="btn btn-raised mr-1 shadow-z-2 btn-info">Submit</button>
+                            <button class="btn btn-raised mr-1 shadow-z-2 btn-success" (click)="selectToday()">Today's Bills</button>
+                            <button (click)="print()">print</button>
                             
-                        </div>
+                      
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                            <div class="col-7"><ul class="list-group">
-                                    <li class="list-group-item left "*ngIf="set!=0"><b> Total Sale:</b> {{set}}<b> Total Save:</b> {{set1}}<b> Total Investments:</b> {{set2}}</li>
+                            <div class="col-6"><ul class="list-group">
+                                    <li class="list-group-item left final "*ngIf="set!=0"><b> Total Investment:</b> {{set}}<b> Total Save:</b> {{set1}}<b> Total Sale:</b> {{set2}}</li>
                                    
                                 </ul>
                                     </div>
-                    <div class="col-5"><div class="input-group" >
+                    <div class="col-6"><div class="input-group" >
                             <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fa fa-search"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Search" name="searchText" [(ngModel)]="searchText" >
+                            <input type="text" class="form-control" placeholder="Search Bill" name="searchText" [(ngModel)]="searchText" >
                           </div></div>
                    
                     <!-- <div class="col-md4"></div> -->
@@ -89,11 +89,11 @@
                 </div>
             </div>
               </div>
-              <div class="card-body">
+              <div class="card-body" id="print-section">
                   <div class="card-block">
                       <table class="table table-striped">
                           <thead>
-                              <tr>
+                              <tr class="table-head">
                                   <th>#</th>
                                   <th>Bill No</th>
                                   <th>No Of Products</th>
@@ -106,7 +106,7 @@
                                   <th scope="row">{{i+1}}</th>
                                   <td>{{item._id}}</td>
                                   <th></th>
-                                  <td>Otto</td>
+                                  <td>{{item.totalSale}}</td>
                                   <td>{{item.date | date  :"medium"}}</td>
                               </tr>
                             
