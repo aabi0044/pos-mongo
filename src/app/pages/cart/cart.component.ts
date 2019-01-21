@@ -31,6 +31,7 @@ resp;
 amad;
 billid;
   date: Date;
+  cart;
 //=========================================
   constructor(private api:ApiService,private router:Router) { }
 
@@ -39,7 +40,7 @@ billid;
     if(this.api.cart.length!=0){
      this.total();
     }
-    
+    this.cart=this.api.cart;
   }
   remove(id) {
     let index = this.api.cart.findIndex(element => element.id === id);
