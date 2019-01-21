@@ -16,6 +16,7 @@ export class CartComponent implements OnInit {
     totalSale: 0,
     //investment - sale 
     totalSave: 0,
+    totalQuantity:0,
     quantity: 0,
     date: Date.now()
   }
@@ -117,6 +118,7 @@ totalOfBill() {
   let totalBill = 0
   let totalSale = 0
   let saveBill = 0
+  let totalQuantity=0;
   for (let i = 0; i < len; i++) {
     let l = parseInt(x[i].saleTotal);
     totalBill = (l + totalBill);
@@ -125,10 +127,16 @@ totalOfBill() {
     let m = parseInt(x[j].actualTotal);
     totalSale = (m + totalSale);
   }
+  for (let j = 0; j < len; j++) {
+    let m = parseInt(x[j].quantity);
+    totalQuantity= (m + totalQuantity);
+  }
+  
   saveBill = totalBill - totalSale;
   this.bill.totalActual = totalSale;
   this.bill.totalSale = totalBill;
   this.bill.totalSave = saveBill;
+  this.bill.totalQuantity=totalQuantity;
   console.log(this.bill.totalActual);
   console.log(this.bill.totalSale);
   console.log(this.bill.totalSave);

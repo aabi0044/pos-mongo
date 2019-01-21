@@ -1,19 +1,20 @@
 <div class="container">
 <!--Invoice template starts-->
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12" >
       
     </div>
 </div>
-<section class="invoice-template">
+<section class="invoice-template" id="print-section">
     <div class="card">
         <div class="card-body p-3">
             <div id="invoice-template" class="card-block">
                 <!-- Invoice Company Details -->
                 <div id="invoice-company-details" class="row">
                     <div class="col-6 text-left">
-                        <a class="btn btn-raised mr-1 shadow-z-2 btn-success">Print Bill</a>
+                        <a class="btn btn-raised mr-1 shadow-z-2 btn-success"  (click)="print()">Print Bill</a>
               <a  class="btn btn-raised mr-1 shadow-z-2 btn-info" routerLink="/makeorder">Back to MakeBill</a>
+              <a class="btn btn-raised mr-1 shadow-z-2 btn-primary"routerLink="/orderslist" >Back</a>
                     </div>
                     <div class="col-6 text-right">
                       
@@ -73,7 +74,7 @@
                     </div>
                     <div class="row">
                         
-                        <div class="col-md-6 col-sm-12">
+                        <!-- <div class="col-md-6 col-sm-12">
                             <p class="lead bold">Total Amount</p>
                             <div class="table-responsive">
                                 <table class="table">
@@ -87,7 +88,7 @@
                                 </table>
                             </div>
                            
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 
@@ -96,9 +97,9 @@
     </div>
 </section>
 </div>
-<div id="print-section">
+<div >
 
-    <div id="headerimage"></div>
+    <!-- <div id="headerimage"></div>
     <div id="invoice" class="effect2">
       
       <div id="invoice-top">
@@ -108,18 +109,18 @@
           <p> hello@michaeltruong.ca 
               289-335-6503
           </p>
-        </div><!--End Info-->
-        <div class="title">
+        </div><End Info-->
+        <!-- <div class="title">
           <h1>Invoice #1069</h1>
           <p>Issued: May 27, 2015
              Payment Due: June 27, 2015
-          </p>
-        </div><!--End Title-->
-      </div><!--End InvoiceTop-->
+          </p> -->
+        <!-- </div>End Title -->
+      <!-- </div>End InvoiceTop -->
   
   
       
-      <div id="invoice-mid">
+      <!-- <div id="invoice-mid">
         
         <div class="clientlogo"></div>
         <div class="info">
@@ -133,7 +134,8 @@
           <p>Proin cursus, dui non tincidunt elementum, tortor ex feugiat enim, at elementum enim quam vel purus. Curabitur semper malesuada urna ut suscipit.</p>
         </div>   
   
-      </div><!--End Invoice Mid-->
+      </div>
+      End Invoice Mid
       
       <div id="invoice-bot">
         
@@ -197,7 +199,8 @@
             </tr>
             
           </table>
-        </div><!--End Table-->
+        </div> -->
+        <!-- End Table
         
       <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
         <input type="hidden" name="cmd" value="_s-xclick">
@@ -209,13 +212,13 @@
         <div id="legalcopy">
           <p class="legal"><strong>Thank you for your business!</strong>  Payment is expected within 31 days; please process this invoice within that time. There will be a 5% interest charge per month on late invoices. 
           </p>
-        </div>
+        </div> -->
         
-      </div><!--End InvoiceBot-->
-    </div><!--End Invoice-->
-  </div><!-- End Invoice Holder-->
+      <!-- </div>End InvoiceBot -->
+    <!-- </div>End Invoice -->
+  <!-- </div>End Invoice Holder -->
 <!-- <div id="print-section">
     // your html stuff that you want to print
   </div> -->
-<button (click)="print()">print</button>
+<!-- <button>print</button> -->
 <!--Invoice template ends-->

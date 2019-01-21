@@ -66,12 +66,13 @@
                          
                               <button type="button" (click)="datePicker()"  class="btn btn-raised mr-1 shadow-z-2 btn-info">Submit</button>
                             <button class="btn btn-raised mr-1 shadow-z-2 btn-success" (click)="selectToday()">Today's Bills</button>
-                            <button (click)="print()">print</button>
+                            <button class="btn btn-raised mr-1 shadow-z-2 btn-success" (click)="print()">print</button>
                             
                       
                 </div>
+                <div id="print-section">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12" >
                             <div class="col-6"><ul class="list-group">
                                     <li class="list-group-item left final "*ngIf="set!=0"><b> Total Investment:</b> {{set}}<b> Total Save:</b> {{set1}}<b> Total Sale:</b> {{set2}}</li>
                                    
@@ -88,8 +89,8 @@
                     
                 </div>
             </div>
-              </div>
-              <div class="card-body" id="print-section">
+           
+              <div class="card-body" >
                   <div class="card-block">
                       <table class="table table-striped">
                           <thead>
@@ -114,7 +115,9 @@
                       </table>
                   </div>
               </div>
+            </div>
           </div>
+        </div>
       </div>
   </div>
 </section>
