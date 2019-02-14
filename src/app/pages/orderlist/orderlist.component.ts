@@ -313,6 +313,7 @@ datePicker(){
     if (this.val2 == '2019') {
       this.year = 2019;
     }
+    
     else if (this.val2 == '2018') {
       this.year = 2018;
     }
