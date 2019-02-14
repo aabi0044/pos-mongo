@@ -1,0 +1,84 @@
+
+ <div class="container">
+   <h3 class="mainheading"> <u>Enter Products To Cart</u> </h3>
+     
+ 
+    
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group"><i class="title">Name</i>
+      <input type="text" class="form-control input" id="exampleFormControlInput1" placeholder="Enter Product Name" name="name" [(ngModel)]="name">
+      <i class="title">price</i>
+        <input type="number" class="form-control input" id="exampleFormControlInput1" placeholder="Enter Product Name" name="price" [(ngModel)]="price">
+        <i class="title"> Sale price</i>
+        <input type="number" class="form-control input" id="exampleFormControlInput1" placeholder="Enter Product Name" name="sale" [(ngModel)]="sale">
+        <i class="title">Quantity</i>
+              <input type="number" class="form-control input" id="exampleFormControlInput1" placeholder="Enter Product Name" name="quantity" [(ngModel)]="quantity">
+              <div class="col-xl-6 col-lg-6 col-md-12">
+                <fieldset class="form-group">
+                    <label for="customSelect"> <b class="txt">Warrenty Type</b></label>
+                    <select class="custom-select d-block w-100" (change)="selectChangeHandler($event)" id="customSelect">
+                        <option selected>Warrenty Limit</option>
+                        <option value="6"> Six Months</option>
+                        <option value="1">One Year</option>
+                        <option value="2">Two Year</option>
+                        <option value="3">Three Year</option>
+                    </select>
+                </fieldset>
+            </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                   
+                    <button class="btn btn-raised gradient-green-tea white shadow-z-1-hover main" (click)="checkout()" >Place Order</button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button"  class="btn btn-raised gradient-blue-grey-blue white shadow-big-navbar main" (click)="cart()" >View Cart</button>
+                    
+          </div>
+        <div class="col-md-3">
+            <button type="button" class="btn btn-raised gradient-blue-grey-blue white shadow-big-navbar main" (click)="addProductToCart()"  *ngIf="quantity&&name&&price&&sale !=null">Add Cart</button></div>
+            <!-- <button type="button"  class="btn btn-raised gradient-blue-grey-blue white shadow-big-navbar main" (click)="cart()" >Add Cart</button> -->
+
+
+
+          </div>
+    </div>
+    
+   
+    <div class="col-md-6">
+      
+        <div class="input-group " >
+            <div class="input-group-prepend">
+              <span class="input-group-text padd1"><i class="fa fa-search "></i></span>
+            </div>
+            <input type="text" class="form-control padd" placeholder="Search" name="searchText" [(ngModel)]="searchText">
+          </div>
+      <table class="table">
+      
+        <thead>
+            <tr class="table-head">
+                <th class="text-center">#</th>
+                <th>Name</th>
+                <th class="text-right">Quantity</th>
+                <th class="text-right">Price</th>
+               <th></th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let item of products ; let i=index" >
+            <tr *ngIf = "filterCondition(item)" (click)="onClick(item)" class="items">
+         
+                <td class="text-center">{{i+1}}</td>
+                <td>{{item.name}}</td>
+                <td class="text-right">{{item.quantity}}</td>
+                <td class="text-right">{{item.price}}</td>
+              
+            </tr>
+        </tbody>
+    </table></div>
+  </div>
+    </div>
+   
+
+
+ 

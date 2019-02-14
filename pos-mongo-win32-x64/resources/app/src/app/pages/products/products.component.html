@@ -1,0 +1,135 @@
+<div class="container">
+
+    <div class="row"> </div>
+    <h3 class="mainheading"> <u>Enter New Products</u></h3>
+
+
+    <div class="row">
+
+        <div class="col-md-5">
+            <div class="form-group"><i class="title"> <strong> Name </strong></i>
+
+                <input type="text" name="name" [(ngModel)]="name" class="form-control input" id="exampleFormControlInput1"
+                    placeholder="Enter Product Name">
+                <i class="title"><b>Price</b> </i>
+                <input class="form-control input" name="price" [(ngModel)]="price" placeholder="Enter Price" type="number">
+                <i class="title"><b>Quantity</b> </i>
+                <input class="form-control input" name="quantity" [(ngModel)]="quantity" placeholder="Enter Quantity"
+                    type="number">
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <button class="btn btn-raised gradient-green-tea white shadow-z-1-hover main">Update</button>
+
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-raised gradient-blue-grey-blue white shadow-big-navbar main"
+                        (click)="useCart()">Create Bill</button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-raised gradient-blue-grey-blue white shadow-big-navbar main"
+                        (click)="addProducts()">Add</button>
+                </div>
+            </div>
+
+
+            <hr>
+            <h2 class="heading"><i class="fa fa-star-o star"></i>Limited Stock<i class="fa fa-star-o star"></i></h2>
+            <hr>
+            <table class="table">
+
+                <thead>
+                    <tr class="table-head">
+                        <th class="text-center">#</th>
+                        <th>Name</th>
+
+                        <th class="text-right">Price</th>
+                        <th class="text-right">Quantity</th>
+                        <th class="text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let item of filter;let i=index">
+
+
+                    <tr *ngIf="warrning" class="items table-limited">
+                        <td class="text-center">{{i+1}}</td>
+                        <td>{{item.name}}</td>
+
+                        <td class="text-right">{{item.price}}</td>
+                        <td class="text-right limit">{{item.quantity}}</td>
+                        <td class="td-actions text-right">
+
+                            <button type="button" rel="tooltip" class="btn btn-danger btn-simple btn-icon btn-sm"
+                                (click)="deleteProduct(item)">
+                                <i class="tim-icons icon-simple-remove"></i>
+                                <i>Delete</i>
+                            </button>
+
+                            <button type="button" rel="tooltip" class="btn btn-success btn-simple btn-icon btn-sm"
+                                (click)="onClick(item)">
+                                <i>Update</i>
+                            </button>
+                        </td>
+                    </tr>
+
+
+
+                </tbody>
+            </table>
+
+
+        </div>
+        <br>
+        <br>
+
+        <div class="col-md-7">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text padd1"><i class="fa fa-search"></i></span>
+                </div>
+                <input type="text" class="form-control padd" placeholder="Search" name="searchText" [(ngModel)]="searchText">
+            </div>
+            <table class="table">
+
+                <thead>
+                    <tr class="table-head">
+                        <th class="text-center">#</th>
+                        <th>Name</th>
+
+                        <th class="text-right">Price</th>
+                        <th class="text-right">Quantity</th>
+                        <th class="text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let item of products;let i=index">
+
+                    <tr *ngIf="filterCondition(item)" class="items">
+                        <td class="text-center">{{i+1}}</td>
+                        <td>{{item.name}}</td>
+
+                        <td class="text-right">{{item.price}}</td>
+                        <td class="text-right">{{item.quantity}}</td>
+                        <td class="td-actions text-right">
+
+                            <button type="button" rel="tooltip" class="btn btn-danger btn-simple btn-icon btn-sm"
+                                (click)="deleteProduct(item)">
+                                <i class="tim-icons icon-simple-remove"></i>
+                                <i>Delete</i>
+                            </button>
+
+                            <button type="button" rel="tooltip" class="btn btn-success btn-simple btn-icon btn-sm"
+                                (click)="onClick(item)">
+                                <i>Update</i>
+                            </button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>

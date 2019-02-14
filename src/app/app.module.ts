@@ -4,6 +4,7 @@ import{HttpModule}from '@angular/http';
 import { HttpClientModule, HttpHeaders } from '@angular/common/http'; 
 import{RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import{NgxPrintModule} from 'ngx-print';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -38,6 +39,7 @@ import { from } from 'rxjs';
     BrowserModule,
     AppRoutingModule,
     HttpModule,
+    NgxPrintModule,
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([

@@ -1,0 +1,224 @@
+<div class="container">
+<!--Invoice template starts-->
+<div class="row">
+    <div class="col-md-12" >
+      
+    </div>
+</div>
+<section class="invoice-template" id="print-section">
+    <div class="card">
+        <div class="card-body p-3">
+            <div id="invoice-template" class="card-block">
+                <!-- Invoice Company Details -->
+                <div id="invoice-company-details" class="row">
+                    <div class="col-6 text-left">
+                        <a class="btn btn-raised mr-1 shadow-z-2 btn-success"  (click)="print()">Print Bill</a>
+              <a  class="btn btn-raised mr-1 shadow-z-2 btn-info" routerLink="/makeorder">Back to MakeBill</a>
+              <a class="btn btn-raised mr-1 shadow-z-2 btn-primary"routerLink="/orderslist" >Back</a>
+                    </div>
+                    <div class="col-6 text-right">
+                      
+                        <ul class="px-0 list-unstyled">
+                          <h4> <li class="bold"><ul>Total Price</ul></li></h4> 
+                            <li class="lead text-bold-800 price">  {{net}}</li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <!--/ Invoice Company Details -->
+                <!-- Invoice Customer Details -->
+                <div id="invoice-customer-details" class="row pt-2">
+                    <div class="col-sm-12 text-left">
+                        
+                    </div>
+                    <div class="col-5 text-left">
+                      
+                    </div>
+                    <div class="col-7 text-right" *ngIf="response">
+                        <p><span class="text-muted">Creation date:</span> {{response.date| date  :"medium"}}</p>
+                        <p class="bill"><span class="text-muted ">Bill No:</span> {{response._id}}</p>
+                       
+                    </div>
+                </div>
+                <!--/ Invoice Customer Details -->
+                <!-- Invoice Items Details -->
+                <div id="invoice-items-details" class="pt-2">
+                    <div class="row">
+                        <div class="table-responsive col-sm-12">
+                            <table class="table">
+                                <thead >
+                                    <tr class="table-head ">
+                                        <th>#</th>
+                                        <th>Item Name</th>
+                                        <th class="text-right">Price</th>
+                                        <th class="text-right">Warrenty Type</th>
+                                        <th class="text-right">Quantity</th>
+                                        <th class="text-right">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody >
+                                    <tr *ngFor="let j of response.orderArray ;let i=index">
+                                        <th scope="row">{{i+1}}</th>
+                                        <td>
+                                            <p>{{j.name}}</p>
+                                                </td>
+                                        <td class="text-right">{{j.saleprice}}</td>
+                                        <td *ngIf="j.warrenty!=''" class="text-right warrenty">{{j.warrenty}}</td>
+                                        <td class="text-right">{{j.quantity}}</td>
+                                        <td class="text-right">{{j.saleTotal}}</td>
+                                    </tr>
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        
+                        <!-- <div class="col-md-6 col-sm-12">
+                            <p class="lead bold">Total Amount</p>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td class="sub1">Sub Total</td>
+                                            <td class="text-right sub">{{net}}</td>
+                                        </tr>
+                                      
+                                    </tbody>
+                                </table>
+                            </div>
+                           
+                        </div> -->
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+<div >
+
+    <!-- <div id="headerimage"></div>
+    <div id="invoice" class="effect2">
+      
+      <div id="invoice-top">
+        <div class="logo"></div>
+        <div class="info">
+          <h2>Michael Truong</h2>
+          <p> hello@michaeltruong.ca 
+              289-335-6503
+          </p>
+        </div><End Info-->
+        <!-- <div class="title">
+          <h1>Invoice #1069</h1>
+          <p>Issued: May 27, 2015
+             Payment Due: June 27, 2015
+          </p> -->
+        <!-- </div>End Title -->
+      <!-- </div>End InvoiceTop -->
+  
+  
+      
+      <!-- <div id="invoice-mid">
+        
+        <div class="clientlogo"></div>
+        <div class="info">
+          <h2>Client Name</h2>
+          <p>JohnDoe@gmail.com
+             555-555-5555
+        </div>
+  
+        <div id="project">
+          <h2>Project Description</h2>
+          <p>Proin cursus, dui non tincidunt elementum, tortor ex feugiat enim, at elementum enim quam vel purus. Curabitur semper malesuada urna ut suscipit.</p>
+        </div>   
+  
+      </div>
+      End Invoice Mid
+      
+      <div id="invoice-bot">
+        
+        <div id="table">
+          <table>
+            <tr class="tabletitle">
+              <td class="item"><h2>Item Description</h2></td>
+              <td class="Hours"><h2>Hours</h2></td>
+              <td class="Rate"><h2>Rate</h2></td>
+              <td class="subtotal"><h2>Sub-total</h2></td>
+            </tr>
+            
+            <tr class="service">
+              <td class="tableitem"><p class="itemtext">Communication</p></td>
+              <td class="tableitem"><p class="itemtext">5</p></td>
+              <td class="tableitem"><p class="itemtext">$75</p></td>
+              <td class="tableitem"><p class="itemtext">$375.00</p></td>
+            </tr>
+            
+            <tr class="service">
+              <td class="tableitem"><p class="itemtext">Asset Gathering</p></td>
+              <td class="tableitem"><p class="itemtext">3</p></td>
+              <td class="tableitem"><p class="itemtext">$75</p></td>
+              <td class="tableitem"><p class="itemtext">$225.00</p></td>
+            </tr>
+            
+            <tr class="service">
+              <td class="tableitem"><p class="itemtext">Design Development</p></td>
+              <td class="tableitem"><p class="itemtext">5</p></td>
+              <td class="tableitem"><p class="itemtext">$75</p></td>
+              <td class="tableitem"><p class="itemtext">$375.00</p></td>
+            </tr>
+            
+            <tr class="service">
+              <td class="tableitem"><p class="itemtext">Animation</p></td>
+              <td class="tableitem"><p class="itemtext">20</p></td>
+              <td class="tableitem"><p class="itemtext">$75</p></td>
+              <td class="tableitem"><p class="itemtext">$1,500.00</p></td>
+            </tr>
+            
+            <tr class="service">
+              <td class="tableitem"><p class="itemtext">Animation Revisions</p></td>
+              <td class="tableitem"><p class="itemtext">10</p></td>
+              <td class="tableitem"><p class="itemtext">$75</p></td>
+              <td class="tableitem"><p class="itemtext">$750.00</p></td>
+            </tr>
+            
+            <tr class="service">
+              <td class="tableitem"><p class="itemtext"></p></td>
+              <td class="tableitem"><p class="itemtext">HST</p></td>
+              <td class="tableitem"><p class="itemtext">13%</p></td>
+              <td class="tableitem"><p class="itemtext">$419.25</p></td>
+            </tr>
+            
+              
+            <tr class="tabletitle">
+              <td></td>
+              <td></td>
+              <td class="Rate"><h2>Total</h2></td>
+              <td class="payment"><h2>$3,644.25</h2></td>
+            </tr>
+            
+          </table>
+        </div> -->
+        <!-- End Table
+        
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="hosted_button_id" value="QRZ7QTM9XRPJ6">
+        <input type="image" src="http://michaeltruong.ca/images/paypal.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+      </form>
+  
+        
+        <div id="legalcopy">
+          <p class="legal"><strong>Thank you for your business!</strong>  Payment is expected within 31 days; please process this invoice within that time. There will be a 5% interest charge per month on late invoices. 
+          </p>
+        </div> -->
+        
+      <!-- </div>End InvoiceBot -->
+    <!-- </div>End Invoice -->
+  <!-- </div>End Invoice Holder -->
+<!-- <div id="print-section">
+    // your html stuff that you want to print
+  </div> -->
+<!-- <button>print</button> -->
+<!--Invoice template ends-->

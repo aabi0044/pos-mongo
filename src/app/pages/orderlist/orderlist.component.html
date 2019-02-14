@@ -1,4 +1,4 @@
-
+<div class="container">
 <!--Striped rows Light Starts-->
 <section id="striped-light">
   <div class="row">
@@ -66,7 +66,8 @@
                          
                               <button type="button" (click)="datePicker()"  class="btn btn-raised mr-1 shadow-z-2 btn-info">Submit</button>
                             <button class="btn btn-raised mr-1 shadow-z-2 btn-success" (click)="selectToday()">Today's Bills</button>
-                            <button class="btn btn-raised mr-1 shadow-z-2 btn-success" (click)="print()">print</button>
+                            <button class="btn btn-raised mr-1 shadow-z-2 btn-success"  printSectionId="print-section" ngxPrint
+                            [printStyle]="{li : {'color': 'red'}, td : {'border': 'solid 1px'}}">print</button>
                             
                       
                 </div>
@@ -106,7 +107,7 @@
                               <tr *ngIf = "filterCondition(item)"  (click)="onClickBill(item)">
                                   <th scope="row">{{i+1}}</th>
                                   <td>{{item._id}}</td>
-                                  <th></th>
+                                  <td></td>
                                   <td>{{item.totalSale}}</td>
                                   <td>{{item.date | date  :"medium"}}</td>
                               </tr>
@@ -122,3 +123,4 @@
   </div>
 </section>
 <!--Striped rows Light Ends-->
+</div>

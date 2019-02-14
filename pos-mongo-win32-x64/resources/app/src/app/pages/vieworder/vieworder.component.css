@@ -1,0 +1,33 @@
+.warrenty{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: green;
+    text-shadow: 20px;
+}
+.bold{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #01579B;
+}
+.price{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+font-style: initial;
+font-size: 25px;
+color: #000;
+
+}
+.table-head{
+    background: #69F0AE;
+}
+.bill{
+    color: #455A64;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    size: 50px;
+}
+.sub{
+    background: #B9F6CA;
+    font-size: 15px;
+    color: #000;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.sub1{
+    background: #B9F6CA;
+}
