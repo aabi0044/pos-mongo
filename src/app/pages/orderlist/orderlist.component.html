@@ -67,7 +67,7 @@
                               <button type="button" (click)="datePicker()"  class="btn btn-raised mr-1 shadow-z-2 btn-info">Submit</button>
                             <button class="btn btn-raised mr-1 shadow-z-2 btn-success" (click)="selectToday()">Today's Bills</button>
                             <button class="btn btn-raised mr-1 shadow-z-2 btn-success"  printSectionId="print-section" ngxPrint
-                            [printStyle]="{li : {'color': 'red'}, tbody : {'border': 'solid 1px'}}">print</button>
+                            [printStyle]="{ li : {'color': 'red'}, tbody : {'border': 'solid 1px'} , div:{'border': 'solid 2px'}}">print</button>
                             
                       
                 </div>
