@@ -12,9 +12,63 @@
                 <!-- Invoice Company Details -->
                 <div id="invoice-company-details" class="row">
                     <div class="col-6 text-left">
-                        <a class="btn btn-raised mr-1 shadow-z-2 btn-success"  (click)="print()">Print Bill</a>
+                        <button type="submit" class="btn btn-raised mr-1 shadow-z-2 btn-success"  (click)="print()">Print Bill</button>
               <a  class="btn btn-raised mr-1 shadow-z-2 btn-info" routerLink="/makeorder">Back to MakeBill</a>
               <a class="btn btn-raised mr-1 shadow-z-2 btn-primary"routerLink="/orderslist" >Back</a>
+              <div id="invoice-items-details" class="pt-2">
+                <div class="row">
+                    <div class="table-responsive col-sm-12" hidden >
+                        <table class="table">
+                            <thead >
+                                <tr class="table-head ">
+                                    <th>#</th>
+                                    <th>Item Name</th>
+                                    <th class="text-right">Price</th>
+                                    <th class="text-right">Warrenty Type</th>
+                                    <th class="text-right">Quantity</th>
+                                    <th class="text-right">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody >
+                                <tr *ngFor="let j of response.orderArray ;let i=index">
+                                    <th scope="row">{{i+1}}</th>
+                                    <td>
+                                        <p>{{j.name}}</p>
+                                            </td>
+                                    <td class="text-right">{{j.saleprice}}</td>
+                                    <td *ngIf="j.warrenty!=''" class="text-right warrenty">{{j.warrenty}}</td>
+                                    <td class="text-right">{{j.quantity}}</td>
+                                    <td class="text-right">{{j.saleTotal}}</td>
+                                </tr>
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    
+                    <!-- <div class="col-md-6 col-sm-12">
+                        <p class="lead bold">Total Amount</p>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td class="sub1">Sub Total</td>
+                                        <td class="text-right sub">{{net}}</td>
+                                    </tr>
+                                  
+                                </tbody>
+                            </table>
+                        </div>
+                       
+                    </div> -->
+                </div>
+            </div>
+
+
+
+
+
                     </div>
                     <div class="col-6 text-right">
                       

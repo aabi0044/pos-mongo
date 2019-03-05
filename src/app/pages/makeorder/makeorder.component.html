@@ -1,10 +1,20 @@
 
  <div class="container">
-   <h3 class="mainheading"> <u>Enter Products To Cart</u> </h3>
+   <div class="row">
+     <div class="col-md-6" align-left>
+          <h3 class="mainheading"> <u>Enter Products To Cart</u> </h3>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-2">
+          <button class="btn btn-success" *ngIf="!buttons"(click)="Buttons()" right> ADD MANUAL</button>
+          <button class="btn btn-success" *ngIf="buttons" (click)="Buttons()"  right> ADD AUTO</button>
+        </div>
+   </div>
+ 
      
  
     
-  <div class="row">
+  <div class="row" *ngIf="!divs">
     <div class="col-md-6">
       <div class="form-group"><i class="title">Name</i>
       <input type="text" class="form-control input" id="exampleFormControlInput1" placeholder="Enter Product Name" name="name" [(ngModel)]="name">
@@ -76,6 +86,9 @@
             </tr>
         </tbody>
     </table></div>
+  </div>
+  <div class="row">
+
   </div>
     </div>
    

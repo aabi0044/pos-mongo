@@ -7,15 +7,16 @@ import{Router}from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-pin:number;
+pin:string;
 constructor(private router:Router) { }
 part2:boolean=false;
   ngOnInit() {
   }
   
   pincode(){
-if(this.pin==2257){
-  this.router.navigate(['/makeorder']);
+if(this.pin=="2257"){
+  localStorage.setItem("uid",this.pin);
+  this.router.navigate(['/addproduct']);
 }
 else{
   console.log("object");

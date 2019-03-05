@@ -9,11 +9,11 @@
       <div class="navbar-container">
         <div id="navbarSupportedContent" class="collapse navbar-collapse">
           <div class="row">
-              <div class="col-md-1" routerLink="addproduct">Add Products</div>
+              <div class="col-md-1" (click)="addProduct()">Add Products</div>
              
              
 
-              <div class="col-md-1" routerLink="addproduct">  
+              <div class="col-md-1" (click)="addProduct()">  
                   <i class="fa fa-cubes cart" aria-hidden="true cart" ></i>
                   
               </div>
@@ -40,10 +40,10 @@
                 <i class="fa fa-list-alt  cart" aria-hidden="true" routerLink="/orderslist"></i>
                 
             </div>
-            <div class="col-md-1">LogOut</div>
+            <div class="col-md-1" (click)="logout()">LogOut</div>
 
             <div class="col-md-1">  
-                <i class="fa fa-circle-o-notch cart" aria-hidden="true" routerLink="/login"></i>
+                <i class="fa fa-circle-o-notch cart" aria-hidden="true" (click)="logout()"></i>
                 
             </div>
            

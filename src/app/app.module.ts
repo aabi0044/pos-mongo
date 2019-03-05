@@ -43,7 +43,7 @@ import { from } from 'rxjs';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      {path:'',redirectTo:'login',pathMatch:'full'},
+      {path:'',redirectTo:'makeorder',pathMatch:'full'},
       {path:'makeorder',component:MakeorderComponent},
       {path:'addproduct',component:ProductsComponent},
       {path:'vieworder',component:VieworderComponent},

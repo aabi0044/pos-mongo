@@ -46,13 +46,15 @@ export class MakeorderComponent implements OnInit {
   resp;
   date: Date;
   warrenty: string;
-
+buttons:boolean=false;
+divs:boolean=false;
   disabledModel: NgbDateStruct = { year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate() };
   constructor(private api: ApiService, private router: Router) { }
   ngOnInit() {
     this.fetchProducts();
     this.totalOfBill();
   }
+
   fetchProducts() {
     this.api.getProducts().subscribe((res) => {
       this.products = res;
@@ -171,6 +173,9 @@ export class MakeorderComponent implements OnInit {
     else if (val == '1') { this.warrenty = 'One Year '; }
     else if (val == '2') { this.warrenty = 'Two Year '; }
     else if (val == '3') { this.warrenty = 'Three Year '; }
+  }
+  Buttons(){
+
   }
   // convertDate() {
   //   const str = this.date.toString(),

@@ -7,6 +7,10 @@ function createWindow () {
   win = new BrowserWindow({
     width: 600, 
     height: 600,
+    webPreferences: {
+      nativeWindowOpen: true, // add this
+      nodeIntegration: false
+    },
     backgroundColor: '#ffffff',
     icon: `file://${__dirname}/dist/assets/logo.png`
   })
@@ -22,6 +26,16 @@ function createWindow () {
     win = null
   })
 }
+// win = new BrowserWindow({
+//   x: 0,
+//   y: 0,
+//   width: size.width,
+//   height: size.height,
+//   webPreferences: {
+//     nativeWindowOpen: true, // add this
+//     nodeIntegration: false
+//   }
+// });
 
 // Create window on electron intialization
 app.on('ready', createWindow)
